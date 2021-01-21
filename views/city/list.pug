@@ -3,7 +3,8 @@ extends ../layout/default.pug
 block content
 	.wrapper
 		h2.title 도시 리스트
-		table.city-wrap.table.table-striped
+		a(href="/city/create").btn.btn-primary.text-light.mb-2 도시등록
+		table.city-wrap.table.table-striped.text-center
 			thead.thead-light
 				tr
 					th 번호
@@ -13,3 +14,15 @@ block content
 					th 인구
 					th 관리
 			tbody
+				each v in data
+					tr
+						td= v.id
+						td= v.name
+						td.text-left= v.summary
+						td= `위도: ${v.lat}, 경도: ${v.lon}`
+						td.text-right= v.population
+						td
+							a(href="/city/remove").mr-2
+								i.fa.fa-trash-alt
+							a(href="/city/remove")
+								i.fa.fa-edit
