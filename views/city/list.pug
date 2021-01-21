@@ -1,4 +1,15 @@
 extends ../layout/default.pug
 
 block content
-	h2.title 도시 리스트
+	.wrapper
+		h2.title 도시 리스트
+		table.city-wrap.table.table-striped
+			thead.thead-dark
+				tr
+					th 번호
+					th 도시명
+					th 도시설명
+					th 위치
+					th 인구
+					th 관리
+			tbody
