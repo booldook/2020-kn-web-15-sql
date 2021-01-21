@@ -1,0 +1,11 @@
+a:link, a:visited, a:active, a:hover {color: inherit;}
+
+.wrapper {max-width: 1200px; margin: auto;}
+
+.header-wrapper {background-color: #333; color: #f9f9f9;}
+.header-wrapper .header-wrap {display: flex; justify-content: space-between; align-items: center;}
+.header-wrapper .navi-wrap {display: flex; align-items: center;}
+.header-wrapper .logo {padding: 1em;}
+.header-wrapper .navi {padding: 1em;}
+
+h2.title {text-align: center; padding: 3em 1em 2em 1em;}
