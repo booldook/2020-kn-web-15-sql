@@ -1,0 +1,3 @@
+.wr-wrapper .table td { border-top: none; border-bottom: 1px solid #dee2e6;}
+
+.wr-wrapper .table td:first-child {font-weight: bold; color: #444;}

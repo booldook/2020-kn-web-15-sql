@@ -17,7 +17,18 @@ router.get('/', (req, res) => {
 
 // 도시 등록
 router.get('/create', (req, res) => {
-	res.send('city/create');
+	res.render('city/create', { file: 'city' });
+});
+
+// 도시 등록(저장)
+router.get('/save', (req, res) => {
+	const { name, lat, lon, population, summary } = req.query;
+	const sql = "INSERT INTO city SET name=?,lat=?,lon=?,population=?,summary=?";
+	const value = [name, lat, lon, population, summary];
+	const onQuery = (err, r) => {
+		res.redirect('/city');
+	}
+	connection.query(sql, value, onQuery);
 });
 
 module.exports = router;

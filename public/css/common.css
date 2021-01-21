@@ -8,4 +8,4 @@ a:link, a:visited, a:active, a:hover {color: inherit;}
 .header-wrapper .logo {padding: 1em;}
 .header-wrapper .navi {padding: 1em;}
 
-h2.title {text-align: center; padding: 3em 1em 2em 1em;}
+h2.title {text-align: center; padding: 3em 1em 2em 1em; font-size: 2em;}

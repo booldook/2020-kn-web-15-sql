@@ -1,0 +1,30 @@
+extends ../layout/default.pug
+
+block content
+	.wrapper
+		h2.title 도시 등록
+		.wr-wrapper.border.rounded.p-4
+			form(action="/city/save" method="get" onsubmit="return onSave(this);")
+				table.table
+					tbody
+						tr
+							td 도시명
+							td.form-inline
+								input.form-control(type="text" name="name" placeholder="도시명")
+						tr
+							td 위치
+							td.form-inline
+								input.form-control(type="number" min="-90" max="90" name="lat" placeholder="위도")
+								span.mx-3 /
+								input.form-control(type="number" min="-180" max="180" name="lon" placeholder="경도")
+						tr
+							td 인구수
+							td.form-inline
+								input.form-control(type="number" name="population" min="0" placeholder="인구수")
+						tr
+							td 설명
+							td
+								textarea.form-control(name="summary" placeholder="도시설명")
+				.text-center
+					button.btn.btn-primary 도시등록
+					button.btn.btn-danger(type="reset") 다시작성
