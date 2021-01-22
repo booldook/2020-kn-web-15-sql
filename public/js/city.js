@@ -6,3 +6,9 @@ function onSave(f) {
 	}
 	return true;
 }
+
+function onRemove(id) {
+	if(confirm('삭제하시겠습니까?')) {
+		location.href = '/city/remove?id='+id;
+	}
+}

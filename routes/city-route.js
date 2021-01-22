@@ -21,14 +21,23 @@ router.get('/create', (req, res) => {
 });
 
 // 도시 등록(저장)
-router.get('/save', (req, res) => {
-	const { name, lat, lon, population, summary } = req.query;
+router.post('/save', (req, res) => {
+	const { name, lat, lon, population, summary } = req.body;
 	const sql = "INSERT INTO city SET name=?,lat=?,lon=?,population=?,summary=?";
 	const value = [name, lat, lon, population, summary];
 	const onQuery = (err, r) => {
 		res.redirect('/city');
 	}
 	connection.query(sql, value, onQuery);
+});
+
+// 도시 삭제
+router.get('/remove', (req, res) => {
+	const sql = 'DELETE FROM city WHERE id='+req.query.id;
+	const onQuery = (err, r) => {
+		res.redirect('/city');
+	}
+	connection.query(sql, onQuery);
 });
 
 module.exports = router;

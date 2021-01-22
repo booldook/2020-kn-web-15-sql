@@ -4,7 +4,7 @@ block content
 	.wrapper
 		h2.title 도시 등록
 		.wr-wrapper.border.rounded.p-4
-			form(action="/city/save" method="get" onsubmit="return onSave(this);")
+			form(action="/city/save" method="post" onsubmit="return onSave(this);")
 				table.table
 					tbody
 						tr

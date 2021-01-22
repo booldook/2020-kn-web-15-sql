@@ -22,7 +22,7 @@ block content
 						td= `위도: ${v.lat}, 경도: ${v.lon}`
 						td.text-right= v.population
 						td
-							a(href="/city/remove").mr-2
+							a(href=`javascript:onRemove(${v.id})`).mr-2
 								i.fa.fa-trash-alt
 							a(href="/city/remove")
 								i.fa.fa-edit
