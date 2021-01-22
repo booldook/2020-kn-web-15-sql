@@ -32,12 +32,31 @@ router.post('/save', (req, res) => {
 });
 
 // 도시 삭제
-router.get('/remove', (req, res) => {
-	const sql = 'DELETE FROM city WHERE id='+req.query.id;
+router.get('/remove/:id', (req, res) => {
+	const sql = 'DELETE FROM city WHERE id='+req.params.id;
 	const onQuery = (err, r) => {
 		res.redirect('/city');
 	}
 	connection.query(sql, onQuery);
 });
+
+// 도시 수정
+router.get('/update/:id', (req, res) => {
+	const sql = 'SELECT * FROM city WHERE id='+req.params.id;
+	const onQuery = (err, r) => {
+		res.render('city/update', { file: 'city', r: r[0] });
+	}
+	connection.query(sql, onQuery);
+});
+
+router.post('/update', (req, res) => {
+	const { name, lat, lon, population, summary, id } = req.body;
+	const sql = 'UPDATE city SET name=?,lat=?,lon=?,population=?,summary=? WHERE id=?';
+	const value = [name, lat, lon, population, summary, id];
+	const onQuery = (err, r) => {
+		res.redirect('/city');
+	}
+	connection.query(sql, value, onQuery);
+})
 
 module.exports = router;

@@ -9,6 +9,6 @@ function onSave(f) {
 
 function onRemove(id) {
 	if(confirm('삭제하시겠습니까?')) {
-		location.href = '/city/remove?id='+id;
+		location.href = '/city/remove/'+id;
 	}
 }
