@@ -1,0 +1,49 @@
+<script>
+	function sum(a, b) {
+		return new Promise(function(resolve, reject) {
+			resolve(a * a + b * b);
+		});
+	}
+
+	sum(10, 20).then(function(r){
+		console.log(r);
+	});
+
+	function hap(a, b) {
+		return new Promise(function(resolve, reject) {
+			resolve(a + b);
+		});
+	}
+
+	function gop(a) {
+		return new Promise(function(resolve, reject) {
+			resolve(a * a);
+		});
+	}
+
+	function str(a) {
+		return new Promise(function(resolve, reject) {
+			resolve(a + '입니다.');
+		});
+	}
+
+	hap(10, 20).then(function(r) {
+		return gop(r);
+	}).then(function(r2) {
+		return str(r2);
+	}).then(function(r3) {
+		console.log(r3);
+	});
+
+	// async/await
+	
+	// async function result() {
+	const result = async () => {
+		var r = await hap(10, 20);
+		var r2 = await gop(r);
+		var r3 = await str(r2);
+		console.log(r3);
+	}
+
+	result();
+</script>

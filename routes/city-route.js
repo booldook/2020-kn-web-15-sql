@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { connection } = require('../modules/mysql-conn');
+const { mysql, connection } = require('../modules/mysql-conn');
 const numeral = require('numeral');
 
 // 도시 리스트
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
 	const sql = 'SELECT * FROM city ORDER BY name ASC';
 	const onQuery = (err, r) => {
 		for(let v of r) {

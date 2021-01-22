@@ -1,0 +1,21 @@
+<script>
+
+function sum(a, b) {
+	return new Promise(function(resolve, reject) {
+		setTimeout(function(){
+			resolve(a + b);
+		}, 10);
+	});
+}
+
+sum(10, 20).then(function(r){
+	console.log(r);
+});
+
+async function start() {
+	var c = await sum(10, 20);
+	console.log(c);
+}
+
+start();
+</script>

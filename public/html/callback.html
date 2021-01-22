@@ -1,8 +1,46 @@
 <script>
-var data = 'A';
-setTimeout(function(){
-	data = 'B';
-	console.log(data);	//?
-}, 0);
-console.log(data);		//?
+/*********** Callback ************/
+function sum(a, b, fn) {
+	var c = a * a + b * b;
+	fn(c);
+}
+
+sum(10, 20, function(r){
+	console.log(r);
+});
+
+// 콜백지옥
+// 합을 1.계산하고 2.합을 제곱 3.입니다.
+function hap(a, b, fn) {
+	fn(a + b);
+}
+
+function gop(a, fn) {
+	fn(a * a);
+}
+
+function str(a, fn) {
+	fn(a + '입니다.');
+}
+
+hap(2, 2, function(r) {
+	gop(r, function(r2) {
+		str(r2, function(r3){
+			console.log(r3);
+		});
+	});
+});
+
+app.get('/test', (req, res) => {
+	const sql = `SELECT * FROM books WHERE name like '%${req.query.q}%'`;
+	connection.query(sql, (r) => {
+		for(let v of r) {
+			let sql2 = `SELECT * FROM writers WHERE user like '%${v.name}%'`;
+			connection.query(sql2, (r2) => {
+				res.json(r2);
+			});
+		}
+	})
+});
+
 </script>

@@ -7,11 +7,11 @@
 6. 수정(get): 127.0.0.1:3000/book/update/2
 7. 수정(저장, post): 127.0.0.1:3000/book/update
 8. 테이블설계
------
+===
 database명: booldook
 table명: books
 id: int(10) - auto increment, primary key - 번호
 name: varchar(255) - not null - 책제목
 writer: varchar(255) - null - 저자
 wdate: datetime - 등록일(저장시점)
------
+===
