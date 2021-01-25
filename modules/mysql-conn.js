@@ -4,6 +4,5 @@ const connection = mysql.createConnection({
 	user: 'booldook',
 	password: '000000',
 	database: 'booldook'
-})
-
-module.exports = { mysql, connection };
+});
+module.exports = { mysql, connection};

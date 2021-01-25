@@ -15,20 +15,24 @@ app.locals.pretty = true;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-
-
-/********* 라우터 불러오기 **********/
-const bookRouter = require('./routes/book-route');
-
-/********* 라우터 구현 **********/
-app.use('/', express.static(path.join(__dirname, 'public')));
-app.use('/book', bookRouter);
-
-/********* 에러처리 **********/
-app.use((req, res, next) => {	// Not Found
-	res.send('/404');
+app.use((req, res, next) => {
+	req.user = 'booldook';
+	next();
 });
 
-app.use((err, req, res, next) => {	// Error
-	res.json(err);
+app.get('/', (req, res, next) => {
+	// res.send(req.user);
+	next('에러내용');
+});
+
+app.get('/test', (req, res, next) => {
+	res.send(req.user + '/TEST');
+});
+
+app.use((req, res, next) => {
+	res.send('404 Not found');
+});
+
+app.use((err, req, res, next) => {
+	res.send(err);
 });
