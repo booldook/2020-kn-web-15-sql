@@ -10,7 +10,7 @@ router.get('/create', (req, res) => {
 
 router.post('/save', (req, res) => {
 	const sql = 'INSERT INTO books SET title=?, writer=?, wdate=?';
-	const value = [req.body.title, req.body.writer || "", new Date()];
+	const value = [req.body.title, req.body.writer, new Date()];
 	const onQuery = (err, r) => {
 		if(err) res.json(err);
 		else res.json(r);
