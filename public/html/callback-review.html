@@ -1,0 +1,46 @@
+<script>
+/******** Callback ********/
+function sum(a, fn) { 
+	if(typeof a == "number") {
+		fn(null, a + a); 
+	}
+	else {
+		fn("숫자만 처리가 가능합니다.");
+	}
+}
+
+sum(10, function(err, r){ 
+	if(err) console.log(err);
+	else console.log(r); 
+});
+
+
+/******** Promise 선언 ********/
+function sumPromise(a) {
+	return new Promise(function(resolve, reject) {
+		if(typeof a == "number") {
+			resolve(a + a);
+		}
+		else {
+			reject("숫자만 처리가 가능합니다.");
+		}
+	})
+}
+
+sumPromise(10).then(function(r){
+	console.log(r);
+}).catch(function(err){
+	console.log(err);
+});
+
+async function start() {
+	try {
+		var r = await sumPromise(10);
+		console.log(r);
+	}
+	catch(err) {
+		console.log(err);
+	}
+}
+start();
+</script>
