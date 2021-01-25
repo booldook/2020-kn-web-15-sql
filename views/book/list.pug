@@ -1,0 +1,25 @@
+extends ../layout/layout-book
+block title
+	div 도서리스트
+block content
+	table.table.table-hover.text-center.tb-book
+		thead.thead-light
+			tr
+				th 번호
+				th 책제목
+				th 책저자
+				th 등록일
+				th 관리
+		tbody
+			each v in r
+				tr
+					td= v.id
+					td= v.title
+					td= v.writer
+					td= v.wdate
+					td
+						a.mr-2(href=`/book/update/${id}`)
+							i.fa.fa-edit
+						a(href=`/book/remove/${id}`)
+							i.fa.fa-trash-alt
+	

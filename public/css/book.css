@@ -1,3 +1,4 @@
+/* create.pug */
 .form-wrapper {display: flex; flex-direction: column; justify-content: center; align-items: center;}
 .form-group {display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px solid #ccc; border-radius: 0.5em; padding: 2em;}
 .form-list {display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #ccc;}
@@ -5,3 +6,31 @@
 .form-list .list {padding: 0.5em;}
 .form-list input {min-width: 300px;}
 .form-group .btn-wrapper {padding-top: 1em;}
+
+/* list.pug */
+
+.tb-book th:nth-child(1) {width: 10%;}
+.tb-book th:nth-child(3) {width: 12%; min-width: 120px;}
+.tb-book th:nth-child(4) {width: 12%; min-width: 120px;}
+.tb-book th:nth-child(5) {width: 8%;}
+
+
+@media screen and (max-width: 1199px) {
+	.tb-book {width: 96%; margin: auto;}
+}
+
+@media screen and (max-width: 991px) {
+	.tb-book th:nth-child(1) {display: none;}
+	.tb-book th:nth-child(5) {display: none;}
+	.tb-book td:nth-child(1) {display: none;}
+	.tb-book td:nth-child(5) {display: none;}
+}
+
+@media screen and (max-width: 767px) {
+
+}
+
+@media screen and (max-width: 575px) {
+	.tb-book th:nth-child(4) {display: none;}
+	.tb-book td:nth-child(4) {display: none;}
+}
