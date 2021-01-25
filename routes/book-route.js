@@ -14,8 +14,8 @@ router.get('/create', (req, res, next) => {
 
 router.post('/save', async (req, res, next) => {
 	try {
-		const sql = 'INSERT INTO book SET title=?, writer=?, wdate=?';
-		const value = [req.body.title, req.body.writer];
+		const sql = 'INSERT INTO books SET title=?, writer=?, wdate=?';
+		const value = [req.body.title, req.body.writer, new Date()];
 		const r = await pool.query(sql, value);
 		res.redirect('/book');
 	}
