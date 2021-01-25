@@ -14,13 +14,18 @@ router.get('/create', (req, res, next) => {
 
 router.post('/save', async (req, res, next) => {
 	try {
-		const sql = 'INSERT INTO books SET title=?, writer=?, wdate=?';
+		const sql = 'INSERT INTO book SET title=?, writer=?, wdate=?';
 		const value = [req.body.title, req.body.writer];
 		const r = await pool.query(sql, value);
 		res.redirect('/book');
 	}
 	catch(e) {
-		next(e);
+		const error = {
+			title: 'SQL Error',
+			code: 500,
+			msg: e.message
+		}
+		next(error);
 	}
 });
 

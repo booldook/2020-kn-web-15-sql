@@ -26,9 +26,14 @@ app.use('/book', bookRouter);
 
 /********* 에러처리 **********/
 app.use((req, res, next) => {	// Not Found
-	res.send('/404');
+	const error = {
+		title: '404 Error',
+		code: 404,
+		msg: 'Page not found - 페이지를 찾을 수 없습니다.'
+	}
+	next(error);
 });
 
 app.use((err, req, res, next) => {	// Error
-	res.json(err);
+	res.render('error', err);
 });
