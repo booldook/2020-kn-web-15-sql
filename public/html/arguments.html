@@ -1,0 +1,38 @@
+<script>
+function err(code, msg, title) {
+	if(arguments.length == 3) {
+		return { code, msg, title }
+	}
+	else if(arguments.length == 2) {
+		// err(500, 'Syntax Error')
+		// err('Syntax Error', 'Error: 500')
+		if(typeof code == 'number') return { code, msg, title: 'ERROR '+code }
+		else return { code: 500, msg: code, title: msg }
+	}
+	else if(arguments.length == 1) {
+		if(typeof code == 'number') {
+			return { 
+				code, 
+				msg: 'Server Internal Error - 서버내부오류', 
+				title: 'ERROR '+code 
+			}
+		}
+		else {
+			return { 
+				code: 500, 
+				msg: code, 
+				title: 'ERROR '+code 
+			}
+		}
+	}
+	else {
+		return {
+			title: 'ERROR 500',
+			code: 500,
+			msg: 'Server Internal Error - 서버내부오류'
+		}
+	}
+}
+
+err(404, 'msg', '에러입니다.');
+</script>

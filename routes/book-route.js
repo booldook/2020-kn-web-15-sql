@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { pool } = require('../modules/mysql-pool'); 
+const { pool } = require('../modules/mysql-pool');
+const { err } = require('../modules/util'); 
 const pugs = { file: 'book', title: '도서등록시스템' }
 
 router.get('/', (req, res, next) => {
@@ -20,12 +21,7 @@ router.post('/save', async (req, res, next) => {
 		res.redirect('/book');
 	}
 	catch(e) {
-		const error = {
-			title: 'SQL Error',
-			code: 500,
-			msg: e.message
-		}
-		next(error);
+		next(err(e.message));
 	}
 });
 
