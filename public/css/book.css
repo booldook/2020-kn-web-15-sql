@@ -1,0 +1,7 @@
+.form-wrapper {display: flex; flex-direction: column; justify-content: center; align-items: center;}
+.form-group {display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px solid #ccc; border-radius: 0.5em; padding: 2em;}
+.form-list {display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #ccc;}
+.form-list .title {font-weight: bold; color: #444; width: 120px; }
+.form-list .list {padding: 0.5em;}
+.form-list input {min-width: 300px;}
+.form-group .btn-wrapper {padding-top: 1em;}

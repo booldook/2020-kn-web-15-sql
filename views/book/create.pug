@@ -2,15 +2,15 @@ extends ../layout/layout-book
 block title
 	div 도서등록
 block content
-	form(method="post" action="/book/save" onsubmit="return onSave(this)")
-		ul
+	form.form-wrapper(method="post" action="/book/save" onsubmit="return onSave(this)")
+		ul.form-group
 			li.form-list
 				div.title 도서명
-				div
+				div.list
 					input.form-control(type="text" name="title" placeholder="도서명을 입력하세요")
 			li.form-list
 				div.title 작가명
-				div
+				div.list
 					input.form-control(type="text" name="writer" placeholder="작가명을 입력하세요")
-		.btn-wrapper
-			button.btn.btn-primary 등록
+			li.btn-wrapper
+				button.btn.btn-primary 등록

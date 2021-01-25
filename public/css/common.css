@@ -9,3 +9,4 @@ a:link, a:visited, a:active, a:hover {color: inherit;}
 .header-wrapper .navi {padding: 1em;}
 
 h2.title {text-align: center; padding: 3em 1em 2em 1em; font-size: 2em;}
+h2.title-wrapper {text-align: center; padding: 2em 1em; font-size: 2em;}
